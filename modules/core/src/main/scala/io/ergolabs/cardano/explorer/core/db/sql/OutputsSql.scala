@@ -275,8 +275,8 @@ final class OutputsSql(implicit lh: LogHandler) {
            |  encode(o.payment_cred, 'hex'),
            |  o.value,
            |  encode(o.data_hash, 'hex'),
-           |  case when (d.value is null) then rd.value else d.value end,
-           |  case when (d.bytes is null) then encode(rd.raw_value, 'hex') else encode(d.bytes, 'hex') end,
+           |  d.value,
+           |  encode(d.bytes, 'hex'),
            |  null,
            |  null,
            |  encode(s.hash, 'hex')
@@ -284,7 +284,6 @@ final class OutputsSql(implicit lh: LogHandler) {
            |left join tx t on t.id = o.tx_id
            |left join block b on b.id = t.block_id
            |left join datum d on d.hash = o.data_hash
-           |left join reported_datum rd on rd.hash = o.data_hash
            |left join script s on s.id = o.reference_script_id
            |where o.payment_cred = decode($pcred, 'hex') and NOT EXISTS (select id from tx_in where tx_out_id = o.tx_id and tx_out_index = o.index)
            |""".stripMargin
