@@ -16,9 +16,9 @@ object PostgresTransactor {
       blocker <- Blocker[F]
       xa <- HikariTransactor.newHikariTransactor[F](
               driverClassName = "org.postgresql.Driver",
-              config.url,
-              config.user,
-              config.pass,
+              scala.util.Properties.envOrElse("DBSYNC_POSTGRESQL_URL", config.url),
+              scala.util.Properties.envOrElse("DBSYNC_POSTGRESQL_USER", config.user),
+              scala.util.Properties.envOrElse("DBSYNC_POSTGRESQL_PASSWORD", config.pass),
               cp,
               blocker
             )
