@@ -26,6 +26,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
-          file: "{context}/teddy-explorer-api.dockerfile"
+          file: "./teddy-explorer-api.dockerfile"
           push: true
           tags: clarkteddyswap/explorer-api:latest
