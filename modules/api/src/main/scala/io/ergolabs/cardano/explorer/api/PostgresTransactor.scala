@@ -16,7 +16,7 @@ object PostgresTransactor {
       blocker <- Blocker[F]
       xa <- HikariTransactor.newHikariTransactor[F](
               driverClassName = "org.postgresql.Driver",
-              "jdbc:" + scala.util.Properties.envOrElse("DBSYNC_POSTGRESQL_URL", config.url),
+              "jdbc:postgresql://" + scala.util.Properties.envOrElse("DBSYNC_POSTGRESQL_HOSTNAME", config.url) + ":5432/cardanodbsync",
               scala.util.Properties.envOrElse("DBSYNC_POSTGRESQL_USER", config.user),
               scala.util.Properties.envOrElse("DBSYNC_POSTGRESQL_PASSWORD", config.pass),
               cp,
