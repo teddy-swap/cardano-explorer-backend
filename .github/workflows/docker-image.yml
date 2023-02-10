@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "feat/teddy-swap-explorer-v0.1" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "feat/teddy-swap-explorer-v0.1" ]
+    branches: [ "master" ]
 
 jobs:
   docker:
