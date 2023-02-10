@@ -28,4 +28,4 @@ jobs:
         with:
           file: "./teddy-explorer-api.dockerfile"
           push: true
-          tags: clarkteddyswap/explorer-api:latest
+          tags: clarkteddyswap/explorer-api:${{ github.sha }}
