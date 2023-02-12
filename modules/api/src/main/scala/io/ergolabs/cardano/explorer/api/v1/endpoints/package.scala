@@ -16,7 +16,7 @@ package object endpoints {
 
   val baseEndpoint: Endpoint[Unit, HttpError, Unit, Any] =
     endpoint
-      .in(V1Prefix)
+      .in("cardano" / V1Prefix)
       .errorOut(
         oneOf[HttpError](
           oneOfMapping(StatusCode.NotFound, jsonBody[HttpError.NotFound].description("not found")),
