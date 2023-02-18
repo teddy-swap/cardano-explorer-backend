@@ -10,7 +10,6 @@ COPY . /cardano-explorer-backend-scala
 WORKDIR /cardano-explorer-backend-scala
 RUN sbt api/assembly
 RUN mv `find . -name explorer-api-assembly-*.jar` /explorer-api.jar
-CMD ["/usr/bin/java", "-jar", "/explorer-api.jar"]
 
 FROM openjdk:8-jre-slim
 COPY --from=builder /explorer-api.jar /explorer-api.jar

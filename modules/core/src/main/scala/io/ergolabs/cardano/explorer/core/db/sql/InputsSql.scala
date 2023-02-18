@@ -88,9 +88,10 @@ final class InputsSql(implicit lh: LogHandler) {
            |  encode(o.payment_cred, 'hex'),
            |  o.value,
            |  encode(o.data_hash, 'hex'),
-           |  d.value
-           |  encode(d.bytes, 'hex')
+           |  d.value,
+           |  encode(d.bytes, 'hex'),
            |  i.id,
+           |  encode(t.hash, 'hex'),
            |  encode(t.hash, 'hex')
            |from tx_in i
            |left join tx t on t.id = i.tx_in_id
