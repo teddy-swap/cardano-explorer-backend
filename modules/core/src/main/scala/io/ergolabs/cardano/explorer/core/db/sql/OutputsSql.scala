@@ -25,8 +25,8 @@ final class OutputsSql(implicit lh: LogHandler) {
            |  encode(o.payment_cred, 'hex'),
            |  o.value,
            |  encode(o.data_hash, 'hex'),
-           |  d.value
-           |  encode(d.bytes, 'hex') 
+           |  d.value,
+           |  encode(d.bytes, 'hex'),
            |  i.id,
            |  encode(ti.hash, 'hex'),
            |  encode(s.hash, 'hex')
