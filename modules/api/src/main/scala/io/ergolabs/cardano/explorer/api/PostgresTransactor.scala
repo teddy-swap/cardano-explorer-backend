@@ -20,7 +20,7 @@ object PostgresTransactor {
                   "DBSYNC_POSTGRESQL_HOSTNAME",
                   config.url
                 ) + ":" + scala.util.Properties.envOrElse("DBSYNC_POSTGRESQL_PORT", "5432") + "/" + scala.util.Properties
-                .envOrElse("DBSYNC_POSTGRESQL_DBNAME", "cardanodbsync") + "?schema=public",
+                .envOrElse("DBSYNC_POSTGRESQL_DATABASE", "cardanodbsync") + "?schema=public",
               scala.util.Properties.envOrElse("DBSYNC_POSTGRESQL_USER", config.user),
               scala.util.Properties.envOrElse("DBSYNC_POSTGRESQL_PASSWORD", config.pass),
               cp,
